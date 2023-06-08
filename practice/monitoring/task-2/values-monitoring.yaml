@@ -1,0 +1,18 @@
+alertmanager:
+  enabled: false
+
+grafana:
+  enabled: false
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - grafana-<IP>.nip.io
+
+prometheus:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - prometheus-<IP>.nip.io
