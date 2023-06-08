@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo-app-1
+  labels:
+    mmelab.io/task: rm-task-1
+    mmelab.io/app: demo-app-1
+---
+apiVersion: ?
+kind: ResourceQuota
+metadata:
+  name: quota
+  ?: demo-app-1
+  labels:
+    mmelab.io/task: rm-task-1
+    mmelab.io/app: demo-app-1
+spec:
+  hard:
+    requests.cpu: "0.5"
+    requests.memory: 1Gi
