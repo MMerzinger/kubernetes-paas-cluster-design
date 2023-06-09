@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    course.ti8m.ch/task: rm-task-4
-    course.ti8m.ch/app: demo-app-2
+    mmelab.io/task: rm-task-4
+    mmelab.io/app: demo-app-2
   name: demo-app-2
   namespace: demo-app-2
 spec:
   replicas: 12
   selector:
     matchLabels:
-      course.ti8m.ch/task: rm-task-4
-      course.ti8m.ch/app: demo-app-2
+      mmelab.io/task: rm-task-4
+      mmelab.io/app: demo-app-2
   template:
     metadata:
       labels:
-        course.ti8m.ch/task: rm-task-4
-        course.ti8m.ch/app: demo-app-2
+        mmelab.io/task: rm-task-4
+        mmelab.io/app: demo-app-2
     spec:
       containers:
       - image: nginx
