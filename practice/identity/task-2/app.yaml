@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  namespace: default
+  labels:
+    azure.workload.identity/use: "true"
+spec:
+  serviceAccountName: azure-workload-identity
+  containers:
+    - image: k8spaasclusterdesign.azurecr.io/azure/azure-workload-identity/msal-go:latest
+      name: query
+      env:
+      - name: KEYVAULT_URL
+        value: "<YOUR-KEYVAULT-URL>"
+      - name: SECRET_NAME
+        value: "<THE-SECRET-NAME-TO-QUERY>"
