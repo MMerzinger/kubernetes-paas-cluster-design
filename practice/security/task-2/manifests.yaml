@@ -1,0 +1,123 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: task-2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver1
+  name: webserver1
+  namespace: task-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver1
+  template:
+    metadata:
+      labels:
+        app: webserver1
+    spec:
+      containers:
+      - image: joseluisq/static-web-server:2.18
+        name: static-web-server
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
+        env:
+          - name: SERVER_PORT
+            value: "8080"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 100000
+          runAsGroup: 100000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop:
+              - ALL
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver2
+  name: webserver2
+  namespace: task-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver2
+  template:
+    metadata:
+      labels:
+        app: webserver2
+    spec:
+      containers:
+      - image: joseluisq/static-web-server
+        name: static-web-server
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 64Mi
+        env:
+          - name: SERVER_PORT
+            value: "8080"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 100000
+          runAsGroup: 100000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop:
+              - ALL
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver3
+  name: webserver3
+  namespace: task-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver3
+  template:
+    metadata:
+      labels:
+        app: webserver3
+    spec:
+      containers:
+      - image: joseluisq/static-web-server:2.18
+        name: static-web-server
+        env:
+          - name: SERVER_PORT
+            value: "8080"
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 100000
+          runAsGroup: 100000
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop:
+              - ALL

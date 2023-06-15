@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: task-4-res
+  labels:
+    mmelab.io/task: security-task-4
+    mmelab.io/app: demo-app
+    pod-security.kubernetes.io/warn: restricted
+
