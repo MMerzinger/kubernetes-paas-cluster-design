@@ -23,7 +23,7 @@ In some practice tasks you need more tools. Use the following command to start a
 docker run --rm -it -v /path/to/the/kubeconfig:/root/.kube/config -v /path/to/the/code:/code k8spaasclusterdesign.azurecr.io/tools/utilities:0.1.0
 ```
 
-It will open a shell in the contianer, and then you can use kubectl, helm and trivy.
+It will open a shell in the container, and then you can use kubectl, helm and trivy.
 
 ## Structure
 
