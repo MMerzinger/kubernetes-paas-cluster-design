@@ -70,3 +70,8 @@ A default backend allow you to:
 - Standardize 404s over the whole cluster
 - Use a container to respond to common error codes
 - Override the default 404 pages provided by nginx
+
+
+## Finally
+
+Please keep your ingress controller. We need it later again.
