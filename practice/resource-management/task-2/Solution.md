@@ -10,7 +10,7 @@ Verify the creation via via `kubectl get deploy -n demo-app-1`. We can see that 
 
 ```bash
 NAME    AGE   REQUEST                      LIMIT
-quota   23m   cpu: 0/500m, memory: 0/1Gi
+quota   23m   cpu: 0/200m, memory: 0/1Gi
 ```
 
 Seems there are no resources used. Let us verify if a pod is created, therefore we inspect the ReplicaSet and pods that should be created:
@@ -29,7 +29,7 @@ kubectl describe replicaset.apps/demo-app-1-c75cbdbc4 -n demo-app-1
 Events:
   Type     Reason        Age                From                   Message
   ----     ------        ----               ----                   -------
-  Warning  FailedCreate  25m                replicaset-controller  Error creating: pods "demo-app-1-c75cbdbc4-48m5d" is forbidden: exceeded quota: quota, requested: cpu=1, used: cpu=0, limited: cpu=500m
+  Warning  FailedCreate  25m                replicaset-controller  Error creating: pods "demo-app-1-c75cbdbc4-48m5d" is forbidden: exceeded quota: quota, requested: cpu=250m, used: cpu=0, limited: cpu=200m
 ...
 ```
 

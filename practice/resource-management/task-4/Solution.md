@@ -1,6 +1,6 @@
 # Resource Management Task 4 - Solution
 
-You can simply __re-create__ the deployment via `kubectl replace --force -f deployment-demo-app-2.yaml`.
+You can simply __re-create__ the deployment via `kubectl replace --force -f deployment-demo-app-2.yaml`. Why __re-create__? If we just apply the manifest, we alter the requests and limits __only__ for new pods and not existing ones. This will result in a different outcome as described below.
 
 As indicated by the name and content of the file, we need to check `demo-app-2`: 
 
