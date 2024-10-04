@@ -16,5 +16,5 @@ metadata:
     mmelab.io/app: demo-app-1
 spec:
   hard:
-    requests.cpu: "0.5"
+    requests.cpu: "0.2"
     requests.memory: 1Gi
